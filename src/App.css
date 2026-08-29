@@ -1,104 +1,223 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f7fb;
-}
-
+css
 .app {
   min-height: 100vh;
-  padding: 60px 20px;
+  background: linear-gradient(135deg, #eef7ff, #ffffff);
+  color: #172033;
 }
 
-.container {
-  max-width: 700px;
+.header {
+  max-width: 1000px;
   margin: 0 auto;
-}
-
-h1 {
-  margin: 0;
-  font-size: 32px;
-}
-
-.subtitle {
-  color: #777;
-  margin: 8px 0 30px;
-}
-
-.input-box {
+  padding: 32px 24px;
   display: flex;
-  gap: 10px;
-  margin-bottom: 25px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
-.input-box input {
-  flex: 1;
-  padding: 15px 18px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  font-size: 16px;
-  outline: none;
+.header h1 {
+  margin: 0;
+  font-size: 30px;
 }
 
-.input-box input:focus {
-  border-color: #5f6cff;
+.header p {
+  margin: 6px 0 0;
+  color: #667085;
 }
 
-.input-box button {
+.install-button,
+.add-button,
+.modal-ok {
   border: none;
-  border-radius: 12px;
-  padding: 0 25px;
+  cursor: pointer;
+  border-radius: 14px;
+  padding: 13px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.install-button {
   background: #5f6cff;
   color: white;
-  font-size: 16px;
-  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(95, 108, 255, 0.25);
 }
 
-.input-box button:hover {
-  opacity: 0.9;
+.install-button:hover {
+  transform: translateY(-2px);
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 24px 60px;
+}
+
+.add-button {
+  background: #172033;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.add-button:hover {
+  transform: translateY(-2px);
+}
+
+.empty {
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.empty-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.empty h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.empty p {
+  color: #667085;
 }
 
 .notes {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  gap: 15px;
 }
 
 .note {
   background: white;
-  padding: 18px;
-  border-radius: 16px;
-
+  border: 1px solid #e6eaf0;
+  border-radius: 18px;
+  padding: 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(20, 30, 50, 0.05);
 }
 
 .note p {
-  margin: 0 0 8px;
-  font-size: 17px;
+  margin: 0;
+  white-space: pre-wrap;
 }
 
-.note small {
-  color: #999;
+.delete-button {
+  border: none;
+  background: #fff0f0;
+  border-radius: 10px;
+  padding: 9px 11px;
+  cursor: pointer;
 }
 
-.delete {
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.install-modal {
+  position: relative;
+  width: min(440px, 100%);
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.install-modal h2 {
+  margin: 0 0 10px;
+}
+
+.install-modal > p {
+  color: #667085;
+  line-height: 1.5;
+}
+
+.close-button {
+  position: absolute;
+  top: 14px;
+  right: 16px;
   border: none;
   background: transparent;
+  font-size: 28px;
   cursor: pointer;
+  color: #667085;
+}
+
+.steps {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.steps > div {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.steps span {
+  min-width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #eef0ff;
+  color: #5f6cff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.steps p {
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+
+.steps small {
   font-size: 20px;
 }
 
-.empty {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  text-align: center;
-  color: #999;
+.modal-ok {
+  width: 100%;
+  margin-top: 10px;
+  background: #5f6cff;
+  color: white;
 }
+
+@media (max-width: 600px) {
+  .header {
+    padding: 24px 18px;
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-size: 23px;
+  }
+
+  .install-button {
+    padding: 11px 14px;
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 15px 18px 40px;
+  }
+
+  .install-modal {
+    padding: 28px 22px;
+  }
+}
+
